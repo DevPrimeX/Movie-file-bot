@@ -8,7 +8,7 @@ from pyrogram.errors import ChatAdminRequired, FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from database.ia_filterdb import Media, get_file_details, unpack_new_file_id
 from database.users_chats_db import db
-from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT
+from info import CHANNELS, ADMINS, AUTH_CHANNEL, LOG_CHANNEL, PICS, BATCH_FILE_CAPTION, CUSTOM_FILE_CAPTION, PROTECT_CONTENT, UPDATES, GROUP, CHANNEL, HOWTO
 from utils import get_settings, get_size, is_subscribed, save_group_settings, temp
 from database.connections_mdb import active_connection
 import re
@@ -23,7 +23,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url='https://t.me/Badsha_Studios')
+                InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url=f'https://t.me/{UPDATES}')
             ],
             [
                 InlineKeyboardButton('ʜᴇʟᴘ', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -44,8 +44,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ ᴀᴅᴅ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='https://t.me/+z0yn0CUgimRmNWFl'),
-            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url='https://t.me/Badsha_Studios')
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=f'https://t.me/{CHANNEL}'),
+            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url=f'https://t.me/{UPDATES}')
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
@@ -94,8 +94,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ ᴀᴅᴅ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url='https://t.me/+z0yn0CUgimRmNWFl'),
-            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url='https://t.me/Badsha_Studios')
+            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=f'https://t.me/{CHANNEL}'),
+            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url=f'https://t.me/{UPDATES}')
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
