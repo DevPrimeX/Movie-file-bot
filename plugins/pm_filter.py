@@ -431,7 +431,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
         ],[
-            InlineKeyboardButton('🆂🅴🅰🆁🅲🅷  🅷🅴🆁🅴', url=f'https://t.me/{GROUP}')
+            InlineKeyboardButton('𝐒𝐞𝐚𝐫𝐜𝐡 𝐇𝐞𝐫𝐞 🔎', url=f'https://t.me/{GROUP}')
         ]]    
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_chat_action("Typing")
