@@ -67,7 +67,7 @@ LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
 update = """potterhub"""
 group = """moviesportal_00"""
-howto = """potter_00"""
+howto = """https://t.me/potter_00"""
 channel = """potterhub"""
 apishortner = """638bea22e5b27f9420265c902cb1051100513daa"""
 website = """https://shorturllink.in/"""
