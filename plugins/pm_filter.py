@@ -30,7 +30,7 @@ BUTTONS = {}
 SPELL_CHECK = {}
 
 
-@Client.on_message(filters.text & ~filters.edited & filters.incoming)
+@Client.on_message(filters.group & filters.text & ~filters.edited & filters.incoming)
 async def give_filter(client, message):
     k = await manual_filters(client, message)
     if k == False:
@@ -430,7 +430,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-        ]]
+        ],[
+            InlineKeyboardButton('🆂🅴🅰🆁🅲🅷  🅷🅴🆁🅴', url=f'https://t.me/{GROUP}')
+        ]]    
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_chat_action("Typing")
         m=await message.reply_sticker("CAACAgUAAxkBAAEFXjpi3UkE0ZhynSwLX09m3hbV8mT3_QACagQAAuW0-FcThm6lMMZRtikE") 
