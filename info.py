@@ -65,10 +65,10 @@ LOG_STR += (f"MAX_LIST_ELM Found, long list will be shortened to first {MAX_LIST
 LOG_STR += f"Your current IMDB template is {IMDB_TEMPLATE}"
 
 time = """300"""
-update = """potterhub"""
-group = """moviesportal_00"""
+update = """HDFilmz4U"""
+group = """Movies_Series_Request_Group"""
 howto = """https://t.me/Being_D_evil"""
-channel = """potterhub"""
+channel = """HDFilmz4U"""
 apishortner = """ced28c0d856ea804fcaf25777ffa7b0642a3d016"""
 website = """https://shorturllink.in/"""
 API = environ.get('API', apishortner)
