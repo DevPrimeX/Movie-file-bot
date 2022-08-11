@@ -425,13 +425,12 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('➕ ᴀᴅᴅ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('ᴄʜᴀɴɴᴇʟ', url=f'https://t.me/{CHANNEL}'),
-            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url=f'https://t.me/{UPDATES}')
+            InlineKeyboardButton('Join Our GROUP 💬', url=f'https://t.me/{GROUP}'),
+            InlineKeyboardButton('Join Our Main CHANNEL ❤️', url=f'https://t.me/{CHANNEL}')
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
-        ],[
-            InlineKeyboardButton('𝐒𝐞𝐚𝐫𝐜𝐡 𝐇𝐞𝐫𝐞 🔎', url=f'https://t.me/{GROUP}')
+      
         ]]    
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_chat_action("Typing")
@@ -464,7 +463,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "about":
         buttons = [[
-            InlineKeyboardButton('ᴜᴘᴅᴀᴛᴇs', url=f'https://t.me/{UPDATES}'),
+            InlineKeyboardButton('Join Our Main CHANNEL', url=f'https://t.me/{CHANNEL}'),
             InlineKeyboardButton('Source', callback_data='source')
         ], [
             InlineKeyboardButton('🏠 Home', callback_data='start'),
