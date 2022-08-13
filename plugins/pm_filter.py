@@ -756,7 +756,8 @@ async def auto_filter(client, msg, spoll=False):
                   
     else:
         await message.reply_text(text=cap, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(btn))
-        
+   if spoll:
+        await msg.message.delete()     
         
 
 
