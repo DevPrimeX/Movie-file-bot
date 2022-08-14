@@ -428,7 +428,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 caption=f'<b>Hai 👋 {query.from_user.mention}</b> 😍\n\n<code>[HDFilmz4U] {title}</code>\n\n⚠️ <i>This file will be deleted from here within 5 minute as it has copyright ... !!!</i>\n\n<i><b>⚡ Powered by {query.message.chat.title}</b></i>',
                 protect_content=True if ident == "filep" else False 
             )                 
-            await asyncio.sleep(300)        
+            await asyncio.sleep(DELETE_TIME)        
             await msg.delete()
             del msg
         except Exception as e:
