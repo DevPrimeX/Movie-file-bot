@@ -391,7 +391,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             print(dulink)
             await query.answer(url=dulink)
 
-         elif query.data.startswith("Chat"):
+    elif query.data.startswith("Chat"):
         ident, file_id, rid = query.data.split("#")
 
         if int(rid) not in [query.from_user.id, 0]:
@@ -435,7 +435,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             logger.exception(e, exc_info=True)
             await query.answer(f"Encountering Issues", True)
    
-         elif  query.data.startswith("checksub"):
+         elif query.data.startswith("checksub"):
         if AUTH_CHANNEL and not await is_subscribed(client, query):
             await query.answer("I Like Your Smartness, But Don't Be Oversmart 😒", show_alert=True)
             return
