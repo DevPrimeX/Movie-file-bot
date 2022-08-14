@@ -220,7 +220,7 @@ async def start(client, message):
             filetype = msg.media
             file = getattr(msg, filetype.value)
             title = file.file_name
-             size = file.file_size
+            size = file.file_size
             f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size)
             await msg.edit(f_caption)
             hemlo = await message.reply('NOTE: This file will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.')
