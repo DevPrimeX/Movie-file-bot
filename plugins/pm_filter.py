@@ -391,7 +391,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             print(dulink)
             await query.answer(url=dulink)
 
-           elif query.data.startswith("Chat"):
+         elif query.data.startswith("Chat"):
         ident, file_id, rid = query.data.split("#")
 
         if int(rid) not in [query.from_user.id, 0]:
