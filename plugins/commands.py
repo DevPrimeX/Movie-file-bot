@@ -250,7 +250,7 @@ async def start(client, message):
         protect_content=True if pre == 'filep' else False,
         )
  
-  @Client.on_message(filters.group & filters.regex("video"))
+@Client.on_message(filters.group & filters.regex("video"))
  
  async def vid(client, message):
     wel = await client.send_video(
