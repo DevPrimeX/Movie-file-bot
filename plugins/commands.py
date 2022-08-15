@@ -251,8 +251,7 @@ async def start(client, message):
         )
  
 @Client.on_message(filters.group & filters.regex("video"))
- 
- async def vid(client, message):
+async def vid(client, message):
     wel = await client.send_video(
         chat_id=message.chat.id,
         video="file.mp4",    
