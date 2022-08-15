@@ -249,7 +249,17 @@ async def start(client, message):
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         )
-                    
+ 
+  @Client.on_message(filters.group & filters.regex("video"))
+ 
+ async def vid(client, message):
+    wel = await client.send_video(
+        chat_id=message.chat.id,
+        video="file.mp4",    
+        caption="texto"
+        )
+    await asyncio.sleep(50)
+    await wel.delete()                 
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
