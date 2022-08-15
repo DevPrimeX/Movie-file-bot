@@ -145,21 +145,25 @@ async def start(client, message):
             if f_caption is None:
                 f_caption = f"{title}"
             try:
-                await client.send_cached_media(
+               ravi2 = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     )
+                await asyncio.sleep(1800)
+                await ravi2.delete()              
             except FloodWait as e:
                 await asyncio.sleep(e.x)
                 logger.warning(f"Floodwait of {e.x} sec.")
-                await client.send_cached_media(
+                ravi = await client.send_cached_media(
                     chat_id=message.from_user.id,
                     file_id=msg.get("file_id"),
                     caption=f_caption,
                     protect_content=msg.get('protect', False),
                     )
+                await asyncio.sleep(1800)
+                await ravi.delete()
             except Exception as e:
                 logger.warning(e, exc_info=True)
                 continue
@@ -216,21 +220,26 @@ async def start(client, message):
     if not files_:
         pre, file_id = ((base64.urlsafe_b64decode(data + "=" * (-len(data) % 4))).decode("ascii")).split("_", 1)
         try:
-            msg=await message.reply_cached_media(file_id=file_id, protect_content=True if pre == 'filep' else False)
+            msg = await client.send_cached_media(
+                chat_id=message.from_user.id,
+                file_id=file_id,
+                protect_content=True if pre == 'filep' else False,
+                )
             filetype = msg.media
-            file = getattr(msg, filetype.value)
+            file = getattr(msg, filetype)
             title = file.file_name
-            size = file.file_size
-            f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size)
-            await msg.edit(f_caption)
-            hemlo=await message.reply('NOTE: This file will be deleted in 10 minutes to avoid copyright infringement, make sure you forward it to your saved messages.')
-            await asyncio.sleep(50)
-            await msg.delete()
-            await hemlo.delete()
-            return await message.reply("Your file has been deleted to avoid copyright infringement, send /cmds or /help to know about other features.")
-        except Exception as e:
-            return await message.reply(e) 
-  
+            size=get_size(file.file_size)
+            f_caption = f"<code>{title}</code>"
+            if CUSTOM_FILE_CAPTION:
+                try:
+                    f_caption=CUSTOM_FILE_CAPTION.format(file_name= '' if title is None else title, file_size='' if size is None else size, file_caption='')
+                except:
+                    return
+            await msg.edit_caption(f_caption)
+            return
+        except:
+            pass
+        return await message.reply('No such file exist.')
     files = files_[0]
     title = files.file_name
     size=get_size(files.file_size)
@@ -243,22 +252,14 @@ async def start(client, message):
             f_caption=f_caption
     if f_caption is None:
         f_caption = f"{files.file_name}"
-    await client.send_cached_media(
+        ravi1 = await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
         caption=f_caption,
         protect_content=True if pre == 'filep' else False,
         )
- 
-@Client.on_message(filters.group & filters.regex("video"))
-async def vid(client, message):
-    wel = await client.send_video(
-        chat_id=message.chat.id,
-        video="file.mp4",    
-        caption="texto"
-        )
-    await asyncio.sleep(50)
-    await wel.delete()                 
+    await asyncio.sleep(1800)
+    await ravi1.delete()               
 
 @Client.on_message(filters.command('channel') & filters.user(ADMINS))
 async def channel_info(bot, message):
@@ -531,4 +532,4 @@ async def save_template(client, message):
         return await sts.edit("No Input!!")
     template = message.text.split(" ", 1)[1]
     await save_group_settings(grp_id, 'template', template)
-    await sts.edit(f"Successfully changed template for {title} to\n\n{template}")
+    await sts.edit(f"Successfully changed template for {title} to\n\n{template}")   
