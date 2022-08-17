@@ -44,8 +44,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ ᴀᴅᴅ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('Join Our GROUP 💬 ', url=f'https://t.me/{GROUP}'),
-            InlineKeyboardButton('Join Our Main CHANNEL ❤️', url=f'https://t.me/{CHANNEL}')
+            InlineKeyboardButton('Movies Group✨', url=f'https://t.me/{GROUP}'),
+            InlineKeyboardButton('Main Channel⚡', url=f'https://t.me/{CHANNEL}')
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
@@ -94,8 +94,8 @@ async def start(client, message):
         buttons = [[
             InlineKeyboardButton('➕ ᴀᴅᴅ ʙᴏᴛ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
         ], [
-            InlineKeyboardButton('Join Our GROUP 💬 ', url=f'https://t.me/{GROUP}'),
-            InlineKeyboardButton('Join Our Main CHANNEL ❤️', url=f'https://t.me/{CHANNEL}')
+            InlineKeyboardButton('Movies Group✨', url=f'https://t.me/{GROUP}'),
+            InlineKeyboardButton('Main Channel⚡', url=f'https://t.me/{CHANNEL}')
         ], [
             InlineKeyboardButton('ʜᴇʟᴘ', callback_data='help'),
             InlineKeyboardButton('ᴀʙᴏᴜᴛ', callback_data='about')
