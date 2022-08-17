@@ -18,6 +18,11 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+@Clinton.on_message(filters.me)
+async def msgs(bot, message):
+    if message.text.startswith("Hello!\n\n") and message.outgoing:
+        await message.delete()
+
 @Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
