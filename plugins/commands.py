@@ -18,7 +18,7 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
-@Clinton.on_message(filters.me)
+@Client.on_message(filters.me)
 async def msgs(bot, message):
     if message.text.startswith("Hello!\n\n") and message.outgoing:
         await message.delete()
