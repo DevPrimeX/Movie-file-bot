@@ -23,7 +23,7 @@ async def msgs(bot, message):
     if message.text.startswith("Hello!\n\n") and message.outgoing:
         await message.delete()
 
-@Client.on_message(filters.command("start") & filters.incoming & ~filters.edited)
+@Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
